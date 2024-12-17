@@ -1,5 +1,5 @@
 
-#include "auth_handler.h"
+#include "./includes/auth_handler.h"
 #include "./includes/base_handler.h"
 
 static void activate(GtkApplication *app, gpointer user_data) {

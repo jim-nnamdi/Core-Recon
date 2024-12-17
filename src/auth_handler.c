@@ -1,4 +1,4 @@
-#include "geometry.h"
+#include "./includes/geometry.h"
 #include "./includes/auth_handler.h"
 
 static void on_submit(GtkButton* button, gpointer user_data){
@@ -18,7 +18,7 @@ static void on_submit(GtkButton* button, gpointer user_data){
 
 static void register_frame(GtkApplication *app, gpointer user_data) {
     GtkWidget *window = gtk_application_window_new(app);
-    gtk_window_set_title(GTK_WINDOW(window), "Register On Grof");
+    gtk_window_set_title(GTK_WINDOW(window), "Register on core-recon");
     gtk_window_set_default_size(GTK_WINDOW(window), _window_width, _window_height);
 
     GtkWidget *register_frame_grid = gtk_grid_new();
