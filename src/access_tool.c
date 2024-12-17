@@ -1,5 +1,5 @@
-#include "./includes/geometry.h"
-#include "./includes/access_tool.h"
+#include "../includes/geometry.h"
+#include "../includes/access_tool.h"
 
 static void enable_user_permissions(GtkButton *button, gpointer user_data) {
     Enable_User_Access *enable_access = (Enable_User_Access *) user_data;

@@ -5,6 +5,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-static void activate(GtkApplication *app, gpointer user_data);
+void activate(GtkApplication *app, gpointer user_data);
 
 #endif

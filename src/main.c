@@ -1,5 +1,5 @@
 #include <gtk/gtk.h>
-#include "includes/base_handler.h"
+#include "../includes/base_handler.h"
 
 int main(int argc, char** argv){
     GtkApplication* app;

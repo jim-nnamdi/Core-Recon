@@ -14,6 +14,6 @@ typedef struct {
 typedef register_data RegisterData;
 
 static void on_submit(GtkButton* button, gpointer user_data);
-static void register_frame(GtkApplication *app, gpointer user_data);
+void register_frame(GtkApplication *app, gpointer user_data);
 
 #endif

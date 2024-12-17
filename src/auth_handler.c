@@ -1,5 +1,5 @@
-#include "./includes/geometry.h"
-#include "./includes/auth_handler.h"
+#include "../includes/geometry.h"
+#include "../includes/auth_handler.h"
 
 static void on_submit(GtkButton* button, gpointer user_data){
     RegisterData *register_logic_sent = (RegisterData *) user_data;
