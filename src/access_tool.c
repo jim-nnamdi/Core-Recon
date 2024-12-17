@@ -20,13 +20,25 @@ static void access_tool_encrypted_email(GtkApplication *app, gpointer user_data)
     GtkWidget *enable_access_frame = gtk_grid_new();
     gtk_window_set_child(GTK_WINDOW(window), enable_access_frame);
 
-    GtkWidget *password_label = gtk_label_new("password");
-    GtkWidget *password_entry = gtk_entry_new();
-    gtk_grid_attach(GTK_GRID(enable_access_frame), password_label, 0, 1, 1, 1);
-    gtk_grid_attach(GTK_GRID(enable_access_frame), password_entry, 1, 1, 1, 1);
+    GtkWidget *core_password_label = gtk_label_new("password");
+    GtkWidget *core_password_entry = gtk_entry_new();
+    gtk_grid_attach(GTK_GRID(enable_access_frame), core_password_label, 0, 1, 1, 1);
+    gtk_grid_attach(GTK_GRID(enable_access_frame), core_password_entry, 1, 1, 1, 1);
 
-    GtkWidget *email_address_label = gtk_label_new("email");
-    GtkWidget *email_address_entry = gtk_entry_new();
-    gtk_grid_attach(GTK_GRID(enable_access_frame), email_address_label, 0, 2, 1, 1);
-    gtk_grid_attach(GTK_GRID(enable_access_frame), email_address_entry, 1, 2, 1, 1);
+    GtkWidget *core_email_address_label = gtk_label_new("email");
+    GtkWidget *core_email_address_entry = gtk_entry_new();
+    gtk_grid_attach(GTK_GRID(enable_access_frame), core_email_address_label, 0, 2, 1, 1);
+    gtk_grid_attach(GTK_GRID(enable_access_frame), core_email_address_entry, 1, 2, 1, 1);
+
+    Enable_User_Access *enable_core_access = g_new(Enable_User_Access, 1);
+    enable_core_access->encrypted_email = core_email_address_entry;
+    enable_core_access->encrypted_passw = core_password_entry;
+
+    GtkWidget *submit_button = gtk_button_new_with_label("Enable Access");
+    gtk_grid_attach(GTK_GRID(enable_access_frame), submit_button, 2, 3, 2, 2);
+    g_signal_connect(submit_button, "clicked", G_CALLBACK(enable_user_permissions), enable_core_access);
+
+    gtk_widget_set_margin_start(enable_access_frame, 50);
+    gtk_widget_set_margin_top(enable_access_frame, 100);
+    gtk_window_present(GTK_WINDOW(window));
 }
