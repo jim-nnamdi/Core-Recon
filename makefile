@@ -5,7 +5,7 @@ LIBS = $(shell pkg-config --libs gtk4)
 
 # Target executable and source file
 TARGET = main
-SRC = ./src/main.c ./src/auth_handler.c
+SRC = ./src/main.c ./src/auth_handler.c ./src/toplevel.c ./src/globals.c
 
 # Build target
 all: $(TARGET)

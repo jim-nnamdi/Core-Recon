@@ -1,8 +1,9 @@
 #include <gtk/gtk.h>
 #include "../includes/auth_handler.h"
+#include "../includes/toplevel.h"
 
 void activate(GtkApplication *app, gpointer user_data) {
-    register_frame(app, user_data);
+    top_level_handler(app, user_data);
 }
 
 int main(int argc, char** argv){

@@ -1,6 +1,9 @@
 #include "../includes/geometry.h"
 #include "../includes/access_tool.h"
 
+char _test_email[20] = "base@recon";
+char _test_passw[20]= "base@@recon";
+
 static void enable_user_permissions(GtkButton *button, gpointer user_data) {
     Enable_User_Access *enable_access = (Enable_User_Access *) user_data;
     GtkEntryBuffer *encrypted_email = gtk_entry_get_buffer(GTK_ENTRY(enable_access->encrypted_email));
