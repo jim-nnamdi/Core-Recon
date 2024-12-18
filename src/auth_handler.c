@@ -29,6 +29,8 @@ void register_frame(GtkApplication *app, gpointer user_data) {
     gtk_grid_attach(GTK_GRID(register_frame_grid),username_label, 0, 0 , 1, 1);
     gtk_grid_attach(GTK_GRID(register_frame_grid),username_entry, 1, 0, 1, 1);
 
+    gtk_widget_set_margin_start(username_entry, 5);
+
     GtkWidget *password_label = gtk_label_new("password");
     GtkWidget *password_entry = gtk_entry_new();
     gtk_grid_attach(GTK_GRID(register_frame_grid), password_label, 0, 1, 1, 1);
@@ -36,14 +38,16 @@ void register_frame(GtkApplication *app, gpointer user_data) {
 
     gtk_widget_set_margin_top(password_label, 5);
     gtk_widget_set_margin_top(password_entry, 5);
+    gtk_widget_set_margin_start(password_entry, 5);
 
-    GtkWidget *email_address_label = gtk_label_new("email");
+    GtkWidget *email_address_label = gtk_label_new("email address");
     GtkWidget *email_address_entry = gtk_entry_new();
     gtk_grid_attach(GTK_GRID(register_frame_grid), email_address_label, 0, 2, 1, 1);
     gtk_grid_attach(GTK_GRID(register_frame_grid), email_address_entry, 1, 2, 1, 1);
 
     gtk_widget_set_margin_top(email_address_label, 5);
     gtk_widget_set_margin_top(email_address_entry, 5);
+    gtk_widget_set_margin_start(email_address_entry, 5);
 
     RegisterData *register_logic = g_new(RegisterData,1);
     register_logic->username_entry = username_entry;
