@@ -1,8 +1,9 @@
 #ifndef GEOMETRY_H
 #define GEOMETRY_H
 
-const int _window_width = 600;
-const int _window_height = 600;
-const char *_test_email = "base@recon.io";
-const char *_test_passw = "@base@reconny";
+extern int _window_width;
+extern int _window_height;
+extern char _test_email[20];
+extern char _test_passw[20];
+
 #endif
