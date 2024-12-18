@@ -1,5 +1,9 @@
 #include <gtk/gtk.h>
-#include "../includes/base_handler.h"
+#include "../includes/auth_handler.h"
+
+void activate(GtkApplication *app, gpointer user_data) {
+    register_frame(app, user_data);
+}
 
 int main(int argc, char** argv){
     GtkApplication* app;

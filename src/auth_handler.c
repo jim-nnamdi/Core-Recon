@@ -16,7 +16,7 @@ static void on_submit(GtkButton* button, gpointer user_data){
     g_print("email address: '%s'\n", raw_email_address);
 }
 
-static void register_frame(GtkApplication *app, gpointer user_data) {
+void register_frame(GtkApplication *app, gpointer user_data) {
     GtkWidget *window = gtk_application_window_new(app);
     gtk_window_set_title(GTK_WINDOW(window), "Register on core-recon");
     gtk_window_set_default_size(GTK_WINDOW(window), _window_width, _window_height);
@@ -26,18 +26,24 @@ static void register_frame(GtkApplication *app, gpointer user_data) {
 
     GtkWidget *username_label = gtk_label_new("username");
     GtkWidget *username_entry = gtk_entry_new();
-    gtk_grid_attach(GTK_GRID(register_frame),username_label, 0, 0 , 1, 1);
-    gtk_grid_attach(GTK_GRID(register_frame),username_entry, 1, 0, 1, 1);
+    gtk_grid_attach(GTK_GRID(register_frame_grid),username_label, 0, 0 , 1, 1);
+    gtk_grid_attach(GTK_GRID(register_frame_grid),username_entry, 1, 0, 1, 1);
 
     GtkWidget *password_label = gtk_label_new("password");
     GtkWidget *password_entry = gtk_entry_new();
-    gtk_grid_attach(GTK_GRID(register_frame), password_label, 0, 1, 1, 1);
-    gtk_grid_attach(GTK_GRID(register_frame), password_entry, 1, 1, 1, 1);
+    gtk_grid_attach(GTK_GRID(register_frame_grid), password_label, 0, 1, 1, 1);
+    gtk_grid_attach(GTK_GRID(register_frame_grid), password_entry, 1, 1, 1, 1);
+
+    gtk_widget_set_margin_top(password_label, 5);
+    gtk_widget_set_margin_top(password_entry, 5);
 
     GtkWidget *email_address_label = gtk_label_new("email");
     GtkWidget *email_address_entry = gtk_entry_new();
-    gtk_grid_attach(GTK_GRID(register_frame), email_address_label, 0, 2, 1, 1);
-    gtk_grid_attach(GTK_GRID(register_frame), email_address_entry, 1, 2, 1, 1);
+    gtk_grid_attach(GTK_GRID(register_frame_grid), email_address_label, 0, 2, 1, 1);
+    gtk_grid_attach(GTK_GRID(register_frame_grid), email_address_entry, 1, 2, 1, 1);
+
+    gtk_widget_set_margin_top(email_address_label, 5);
+    gtk_widget_set_margin_top(email_address_entry, 5);
 
     RegisterData *register_logic = g_new(RegisterData,1);
     register_logic->username_entry = username_entry;
@@ -45,10 +51,11 @@ static void register_frame(GtkApplication *app, gpointer user_data) {
     register_logic->email_address = email_address_entry;
 
     GtkWidget *submit_button = gtk_button_new_with_label("Register Account");
-    gtk_grid_attach(GTK_GRID(register_frame), submit_button, 2, 3, 2, 2);
+    gtk_grid_attach(GTK_GRID(register_frame_grid), submit_button, 1, 3, 2, 2);
+    gtk_widget_set_margin_top(submit_button, 5);
     g_signal_connect(submit_button, "clicked", G_CALLBACK(on_submit), register_logic);
 
-    gtk_widget_set_margin_start(register_frame, 50);
-    gtk_widget_set_margin_top(register_frame, 100);
+    gtk_widget_set_margin_start(register_frame_grid, 50);
+    gtk_widget_set_margin_top(register_frame_grid, 100);
     gtk_window_present(GTK_WINDOW(window));
 }
