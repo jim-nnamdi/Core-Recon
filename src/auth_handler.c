@@ -1,5 +1,6 @@
 #include "../includes/geometry.h"
 #include "../includes/auth_handler.h"
+#include "../includes/storage.h"
 
 static void on_submit(GtkButton* button, gpointer user_data){
     RegisterData *register_logic_sent = (RegisterData *) user_data;
@@ -14,6 +15,10 @@ static void on_submit(GtkButton* button, gpointer user_data){
 
     g_print("username : '%s'\n", raw_username_data);
     g_print("email address: '%s'\n", raw_email_address);
+
+    sqlite3* DB_instance = create_storage_db("recon.db");
+    int save_user_data = create_new_user(DB_instance, raw_username_data, raw_password_data, raw_email_address);
+    if (save_user_data) g_print("user added to recon users catalog");
 }
 
 void register_frame(GtkApplication *app, gpointer user_data) {
